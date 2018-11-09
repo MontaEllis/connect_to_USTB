@@ -1,3 +1,6 @@
+# __author : Ellis
+# __date : 2018/11/9
+
 import time
 import requests
 import re
@@ -7,12 +10,12 @@ class Login:
 
     def __init__(self):
         # 检测间隔时间，单位为秒
-        self.every = 30
+        self.every = 5
 
     # 模拟登录
     def login(self):
 
-        print(self.getCurrentTime(), u"拼命连网中...")
+        print(self.getCurrentTime(), u"connecting...")
 
         url = "http://202.204.48.82/"
         # 消息头
@@ -42,7 +45,7 @@ class Login:
 
         try:
             requests.post(url, headers=headers, data=data)
-            print(self.getCurrentTime(), u'连上了...现在开始看连接是否正常')
+            print(self.getCurrentTime(), u'connected and checking...')
         except:
             print("error")
 
@@ -71,19 +74,19 @@ class Login:
             while True:
                 can_connect = self.canConnect()
                 if not can_connect:
-                    print(self.getCurrentTime(), u"断网了...")
+                    print(self.getCurrentTime(), u"disconnecting...")
                     self.login()
                 else:
-                    print(self.getCurrentTime(), u"一切正常...")
+                    print(self.getCurrentTime(), u"fine...")
                 time.sleep(self.every)
             time.sleep(self.every)
 
 
 #######################################################
 
-id = '41624621'  # 请在这里输入学号！
+id = 'xxxxxx'  # 请在这里输入学号！
 
-psw = '02070207'  # 请在这里输入密码！
+psw = 'xxxxxx'  # 请在这里输入密码！
 
 #########################################################
 
